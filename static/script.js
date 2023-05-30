@@ -36,7 +36,7 @@ fetch(
             </div>
         </div>
        </a>
-    </div>;`;
+    </div>`;
 
       let cardsBoxId = document.querySelector('#cards-box');
       cardsBoxId.insertAdjacentHTML('beforeend', temp_html);
@@ -47,6 +47,37 @@ function info_click(id) {
   alert(`영화 ID:${id}`);
 }
 
-// function search_btn(){
-//   var txt = document.getElementById().value;
-// }
+function search_btn() {
+  const name = document.getElementById('movie_name_input').value;
+
+  const card_arr = document.getElementsByClassName('col');
+
+  const card_name_tag = [];
+  const card_name_arr = [];
+  for (let i = 0; i < card_arr.length; i++) {
+    card_name_tag[i] = card_arr[i].getElementsByTagName('h3');
+    card_name_arr[i] = card_name_tag[i][0].innerText;
+  }
+
+  const movie_filter = (query) => {
+    return card_name_arr.filter(
+      (el) => el.toUpperCase().indexOf(query.toUpperCase()) > -1
+    );
+  };
+
+  for (let i = 0; i < card_name_arr.length; i++) {
+    card_arr[i].style = 'display:none';
+  }
+
+  let a = '';
+  for (let i = 0; i < card_name_arr.length; i++) {
+    a = movie_filter(name)[i];
+    //console.log(a);
+    for (let i = 0; i < card_name_arr.length; i++) {
+      if (a === card_name_arr[i]) {
+        console.log(card_name_arr[i], i);
+        card_arr[i].style = 'display:inline-block';
+      }
+    }
+  }
+}
