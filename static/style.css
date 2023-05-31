@@ -41,6 +41,8 @@ header #gnb li a {
   color: white;
   font-weight: bold;
   font-size: 20px;
+  user-select: none;
+  cursor: pointer;
 }
 
 header #gnb li:first-child a {
@@ -87,6 +89,11 @@ header #gnb li:first-child a {
   border: none;
   text-indent: -999px;
   cursor: pointer;
+  filter: opacity(0.5) drop-shadow(0 0 0 #228b22);
+}
+
+#search form fieldset button:hover {
+  filter: opacity();
 }
 
 .wrapper {
@@ -132,10 +139,12 @@ header #gnb li:first-child a {
   font-size: 36px;
   margin-bottom: 30px;
   color: white;
+  user-select: none;
 }
 #cards-box .col a .info p {
   line-height: 20px;
   color: #ccc;
+  user-select: none;
 }
 #cards-box .col a .info p:last-child {
   margin-top: 30px;
