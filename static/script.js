@@ -39,14 +39,16 @@ fetch(
     </div>`;
 
       let cardsBoxId = document.querySelector('#cards-box');
-      cardsBoxId.insertAdjacentHTML('beforeend', temp_html);
+      cardsBoxId.insertAdjacentHTML('beforeend', temp_html); //Map, innerHTML
     });
   });
 
+// 카드 클릭시 Id값 alert창에 표시
 function info_click(id) {
   alert(`영화 ID:${id}`);
 }
 
+// 검색기능   // filter, forEach
 function search_btn() {
   const name = document.getElementById('movie_name_input').value;
 
@@ -75,7 +77,7 @@ function search_btn() {
     //console.log(a);
     for (let i = 0; i < card_name_arr.length; i++) {
       if (a === card_name_arr[i]) {
-        console.log(card_name_arr[i], i);
+        //console.log(card_name_arr[i], i);
         card_arr[i].style = 'display:inline-block';
       }
     }
