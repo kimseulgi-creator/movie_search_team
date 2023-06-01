@@ -16,4 +16,4 @@ TMDB에서 받아온 영화 데이터를 브라우저 화면에 카드 형태의
 ***
 
 2. 프로젝트 시연 영상
-![](https://velog.velcdn.com/images/seul-bean/post/a71eff9d-ddfb-4be5-a263-5ca27c2dccdf/image.GIF)
+![vllo](https://github.com/JellyBear97/Personal_proj1/assets/78592995/2f1956b0-db4b-4ea8-b383-8e46b16bb736)
