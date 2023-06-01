@@ -14,7 +14,6 @@ fetch(
   .then((response) => response.json())
   .then((response) => {
     let movie_list = response['results'];
-    //document.getElementById('cards-box').innerHTML = '';
 
     let temp_html = ``;
     movie_list.forEach((i) => {
@@ -39,7 +38,6 @@ fetch(
     </div>`;
 
       document.getElementById('cards-box').innerHTML = temp_html;
-      //cardsBoxId.insertAdjacentHTML('beforeend', temp_html); //Map, innerHTML
     });
   });
 
@@ -48,33 +46,22 @@ function info_click(id) {
   alert(`영화 ID:${id}`);
 }
 
-// 검색기능   // filter, forEach
+// 검색기능
 function search_btn() {
   const movie_name_input = document.getElementById('movie_name_input').value;
-
   const card_arr = document.getElementsByClassName('col');
 
-  const card_name_tag = [];
   const card_name_arr = [];
   for (let i = 0; i < card_arr.length; i++) {
-    card_name_arr[i] = card_arr[i].getElementsByTagName('h3')[0].innerText; //id값 주기
-    //card_name_arr[i] = card_name_tag[i][0].innerText;
-  }
-
-  const movie_filter = (movie_input) => {
-    //밖으로 빼기, 함수 안에 함수 X
-    return card_name_arr.filter(
-      (el) => el.toUpperCase().indexOf(movie_input.toUpperCase()) > -1
-    );
-  };
-
-  for (let i = 0; i < card_name_arr.length; i++) {
+    card_name_arr[i] = card_arr[i].getElementsByTagName('h3')[0].innerText;
     card_arr[i].style = 'display:none';
   }
 
   let movie_name = '';
   for (let i = 0; i < card_name_arr.length; i++) {
-    movie_name = movie_filter(movie_name_input)[i];
+    movie_name = card_name_arr.filter(
+      (el) => el.toUpperCase().indexOf(movie_name_input.toUpperCase()) > -1
+    )[i];
     for (let i = 0; i < card_name_arr.length; i++) {
       if (movie_name === card_name_arr[i]) {
         card_arr[i].style = 'display:inline-block';
@@ -82,6 +69,7 @@ function search_btn() {
     }
   }
 }
+
 // 버튼 스크롤
 function scroll_move() {
   const homeBtn = document.querySelector('.home_btn');
