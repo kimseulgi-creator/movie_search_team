@@ -46,6 +46,10 @@ function info_click(id) {
   alert(`영화 ID:${id}`);
 }
 
+function info_click(id) {
+  window.open('movie_detail.html?id=' + id);
+}
+
 // 검색기능
 function search_btn() {
   const movie_name_input = document.getElementById('movie_name_input').value;
