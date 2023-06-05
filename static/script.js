@@ -3,20 +3,17 @@ const options = {
   headers: {
     accept: 'application/json',
     Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZmY1NTVkYzQ4Mzk3OTdkMzZiODZlNzE5MWZjZjgzMSIsInN1YiI6IjY0NzQ0MjBhOWFlNjEzMDEyNTdjOWRkOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jEHwM9rbkGkWzt14fojKA5PfuHcpxNxLYiIzB6dJM5U',
-  },
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZmY1NTVkYzQ4Mzk3OTdkMzZiODZlNzE5MWZjZjgzMSIsInN1YiI6IjY0NzQ0MjBhOWFlNjEzMDEyNTdjOWRkOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jEHwM9rbkGkWzt14fojKA5PfuHcpxNxLYiIzB6dJM5U'
+  }
 };
 
-fetch(
-  'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
-  options
-)
-  .then((response) => response.json())
-  .then((response) => {
+fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+  .then(response => response.json())
+  .then(response => {
     let movie_list = response['results'];
 
     let temp_html = ``;
-    movie_list.forEach((i) => {
+    movie_list.forEach(i => {
       let img_url = 'https://image.tmdb.org/t/p/w500' + i['backdrop_path'];
       let movie_title = i['title'];
       let overview = i['overview'];
@@ -47,7 +44,7 @@ function info_click(id) {
 }
 
 function info_click(id) {
-  window.open('movie_detail.html?id=' + id);
+  location.replace('movie_detail.html?id=' + id);
 }
 
 // 검색기능
@@ -64,7 +61,7 @@ function search_btn() {
   let movie_name = '';
   for (let i = 0; i < card_name_arr.length; i++) {
     movie_name = card_name_arr.filter(
-      (el) => el.toUpperCase().indexOf(movie_name_input.toUpperCase()) > -1
+      el => el.toUpperCase().indexOf(movie_name_input.toUpperCase()) > -1
     )[i];
     for (let i = 0; i < card_name_arr.length; i++) {
       if (movie_name === card_name_arr[i]) {
@@ -81,13 +78,9 @@ function scroll_move() {
 
   const location = document.querySelector('#movie_search_cards').offsetTop;
 
-  homeBtn.addEventListener('click', () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  );
+  homeBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  moviesBtn.addEventListener('click', () =>
-    window.scrollTo({ top: location, behavior: 'smooth' })
-  );
+  moviesBtn.addEventListener('click', () => window.scrollTo({ top: location, behavior: 'smooth' }));
 }
 
 scroll_move();
