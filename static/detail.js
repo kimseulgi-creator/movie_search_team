@@ -7,10 +7,52 @@ const OPTIONS = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzZmYzQyYzYyY2JhMWJmOGNjZWE3NGIzYzY1ZmIxYiIsInN1YiI6IjY0NTBhNjM3ZDcxMDdlMDE0YzZmZDk4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ispHusWEKA3CalXIEK51_NiqFwzActFVSyietRsLH68'
   }
 };
-
-const $video_list = document.querySelector('.video_list');
-const $youtube_player_container = document.querySelector('#youtube_player_container');
-
+const dummyThumbnails = [
+  {
+    id: '9je8I3t2mRA',
+    title: 'Sparkle| Your Name | Hindi Cover | Now Streaming | Bloody tv+',
+    url: 'https://i.ytimg.com/vi/9je8I3t2mRA/sddefault.jpg'
+  },
+  {
+    id: 'Rto08gyg_P4',
+    title: 'Zen Zen Zense | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
+    url: 'https://i.ytimg.com/vi/Rto08gyg_P4/sddefault.jpg'
+  },
+  {
+    id: 'Pp57eD9oRPc',
+    title: 'Dream Lantern | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
+    url: 'https://i.ytimg.com/vi/Pp57eD9oRPc/sddefault.jpg'
+  },
+  {
+    id: 'EJVfSU9z-64',
+    title: 'Nandemonaiya | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
+    url: 'https://i.ytimg.com/vi/EJVfSU9z-64/sddefault.jpg'
+  },
+  {
+    id: '_oWzYOwXn-o',
+    title: 'Your Name | Official Hindi Trailer | Bloody tv+',
+    url: 'https://i.ytimg.com/vi/_oWzYOwXn-o/sddefault.jpg'
+  },
+  {
+    id: 'SlNVu5pnZuc',
+    title:
+      'How to be an anime voice actor, with Your Name stars Stephanie Sheh and Michael Sinterniklaas | BFI',
+    url: 'https://i.ytimg.com/vi/SlNVu5pnZuc/sddefault.jpg'
+  },
+  {
+    id: 'o4-URMnBOPU',
+    title: 'Your Name. | Trailer (Dubbed)',
+    url: 'https://i.ytimg.com/vi/o4-URMnBOPU/sddefault.jpg'
+  },
+  {
+    id: 'xU47nhruN-Q',
+    title: 'Your Name - Trailer [English Subtitled]',
+    url: 'https://i.ytimg.com/vi/xU47nhruN-Q/sddefault.jpg'
+  }
+];
+const $videoList = document.querySelector('.videoList');
+const $youtubePlayer__container = document.querySelector('#youtubePlayer__container');
+const $thumbnailSwiper = document.querySelector('.thumbnailSwiper');
 let link = document.location.href.split('?');
 const urlSearchParamsObject = new URLSearchParams(link[1]);
 const id = urlSearchParamsObject.get('id');
@@ -55,8 +97,9 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_respons
     document.getElementsByClassName('time')[0].innerText = detail_runtime;
     document.getElementsByClassName('content')[0].innerText = detail_overview;
 
-    console.log(response.videos.results);
-    return createThumbnailElements(response.videos.results);
+    return createThumbnailElements(
+      response.videos.results.filter(video => video.site === 'YouTube')
+    );
   })
   .then(response => console.log(response));
 // .catch(err => console.error(err));
@@ -132,11 +175,11 @@ function startPlayer(id) {
       onReady: onPlayerReady
     }
   });
-  $youtube_player_container.classList.remove('hide');
+  $youtubePlayer__container.classList.remove('hide');
 }
 
 function closePlayer() {
-  $youtube_player_container.classList.add('hide');
+  $youtubePlayer__container.classList.add('hide');
   resetVideo();
 }
 
@@ -154,10 +197,9 @@ function createThumbnailSlide(video) {
   newImg.onerror = e => {
     e.target.src = 'https://placehold.co/640x480?text=No+Image';
   };
-  newPlayIcon.classList.add('play_icon');
-  newBtn.classList.add('video_thumbnail');
+  newPlayIcon.classList.add('playIcon');
+  newBtn.classList.add('videoThumbnail');
   newBtn.addEventListener('click', () => startPlayer(video.id));
-  console.dir(newImg);
   newBtn.appendChild(newImg);
   newBtn.appendChild(newPlayIcon);
   newItem.appendChild(newBtn);
@@ -167,13 +209,12 @@ function createThumbnailSlide(video) {
 
 async function createThumbnailElements(movieVideos) {
   try {
-    const thumbnails = await getThumbnails(movieVideos);
-    //const thumbnails = dummyThumbnails;
-    console.dir(thumbnails);
-    $video_list.innerHTML = '';
+    const thumbnails = await getThumbnails(movieVideos); // api 사용
+    //const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
+    $videoList.innerHTML = '';
     thumbnails.forEach(video => {
       const newItem = createThumbnailSlide(video);
-      $video_list.appendChild(newItem);
+      $videoList.appendChild(newItem);
     });
     document.querySelector('.thumbnailSwiper').insertAdjacentHTML(
       'afterend',
@@ -183,7 +224,7 @@ async function createThumbnailElements(movieVideos) {
     <div class="swiper-pagination"></div>`
     );
     const swiper = createThumbnailSwiper('.thumbnailSwiper');
-    $youtube_player_container.addEventListener('click', closePlayer);
+    $youtubePlayer__container.addEventListener('click', closePlayer);
   } catch (error) {
     console.error(error);
   }

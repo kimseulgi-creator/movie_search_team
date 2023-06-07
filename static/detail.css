@@ -199,7 +199,7 @@ header {
 
 
 
-#youtube_player_container {
+#youtubePlayer__container {
   z-index: 100;
   width: 100vw;
   height: 100vh;
@@ -209,7 +209,7 @@ header {
   background-color: #000000eb;
 }
 
-#youtube_player_container.hide {
+#youtubePlayer__container.hide {
   display: none;
 }
 
@@ -221,10 +221,10 @@ header {
   transform: translate(-50%, -50%);
 }
 
-#video_list {
+#videoList {
   list-style: none;
 }
-.play_icon {
+.playIcon {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -248,7 +248,7 @@ header {
   transition: all 200ms ease-in-out;
 }
 
-.play_icon::before {
+.playIcon::before {
   content: "";
   display: inline-block;
   border-left: 0.3em solid;
@@ -257,12 +257,12 @@ header {
   margin-right: -0.08em;
 }
 
-.video_thumbnail:hover .play_icon {
+.videoThumbnail:hover .playIcon {
   background-color: var(--swiper-icon-hover-color);
   font-size: 100px;
 }
 
-.video_thumbnail {
+.videoThumbnail {
   width: 100%;
   height: 100%;
   border: none;
@@ -275,7 +275,7 @@ header {
   color: white;
 }
 
-.thumbnailSwiper_container {
+.thumbnailSwiper__container {
   padding: 50px;
   position: relative;
   margin: 0 20px;
