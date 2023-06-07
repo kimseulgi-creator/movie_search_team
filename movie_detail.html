@@ -8,7 +8,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="../static/reset.css">
   <link rel="stylesheet" href="../static/detail.css">
-
 </head>
 
 <body>
@@ -18,49 +17,59 @@
         <h1>logo</h1>
       </a>
   </header>
+
   <section id="visual">
     <div class="inner">
       <div class="word">
         <h2></h2>
-        <p class="tagline">"It's how you wear the mask that matters"</p>
-        <p class="vote">⭐8.762</p>
+        <p class="tagline"></p>
+        <p class="vote"></p>
         <div class="info">
-          <p>개봉   |   <span class="date">2023.05.31</span></p>
-          <p>장르   |   <span class="genre">범죄</span></p>
-          <p>언어   |   <span class="country">한국</span></p>
-          <p>러닝타임   |   <span class="time">105</span>분</p>
+          <p>개봉 | <span class="date"></span></p>
+          <p>장르 | <span class="genre"></span></p>
+          <p>언어 | <span class="country"></span></p>
+          <p>상영시간 | <span class="time"></span>분</p>
         </div>
       </div>
-      <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="">
+      <img src="" alt="">
     </div>
     <hr>
   </section>
 
-  <section id="videos" class="videos">
+  <!-- Overview 부분-->
+  <section id="information">
     <div class="inner">
-      <h3 class="videos__title">Movie Videos</h3>
-      <ul class="videoList"></ul>
-
-    </div>
-  
-      <div id="youtubePlayer__container" class="hide" onclick="closePlayer()">
-        <div id="youtubePlayer"></div>
-      </div>
+      <h2>Overview</h2>
+      <p class="content"></p>
     </div>
   </section>
 
+  <!-- tab menu 부분 (button)-->
   <section id="content">
     <div class="inner">
       <div class="tab">
-        <button class="tablinks" onclick="openMovie(event, 'Information')">Information</button>
-        <button class="tablinks" onclick="openMovie(event, 'Review')">Review</button>
+        <button class="tablinks" onclick="openMovie(event, 'reviews')">Reviews</button>
+        <button class="tablinks" onclick="openMovie(event, 'videos')">Videos</button>
+        <button class="tablinks" onclick="openMovie(event, 'recommend')">Recommend</button>
       </div>
-      <div id="Information" class="tabcontent">
-        <p class="content">After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across
-          the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the
-          Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself
-          pitted
-          against the other Spiders and must set out on his own to save those he loves most.</p>
+
+      <!-- tab menu 부분 (content) -->
+      <div id="reviews" class="tabcontent">
+        <p>댓글부분입니당</p>
+      </div>
+      <div id="videos" class="tabcontent videos">
+          <div class="inner">
+            <h3 class="videos__title">Movie Videos</h3>
+            <ul class="videoList"></ul>
+      
+          </div>
+        
+            <div id="youtubePlayer__container" class="hide" onclick="closePlayer()">
+              <div id="youtubePlayer"></div>
+            </div>
+      </div>
+      <div id="recommend" class="tabcontent">
+        <p>Recommend 부분입니당</p>
       </div>
     </div>
   </section>

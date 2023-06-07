@@ -43,8 +43,9 @@ function info_click(id) {
   alert(`영화 ID:${id}`);
 }
 
+// 페이지 이동
 function info_click(id) {
-  location.replace('movie_detail.html?id=' + id);
+  location.href = `movie_detail.html?id=${id}`;
 }
 
 // 검색기능

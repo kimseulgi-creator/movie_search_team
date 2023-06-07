@@ -1,5 +1,5 @@
 const YOUTUBE_APIKEY = 'AIzaSyBc0ERVcfLRlK8AkNakLo0BwlfBQmmNVtw';
-const OPTIONS = {
+const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
@@ -7,6 +7,7 @@ const OPTIONS = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzZmYzQyYzYyY2JhMWJmOGNjZWE3NGIzYzY1ZmIxYiIsInN1YiI6IjY0NTBhNjM3ZDcxMDdlMDE0YzZmZDk4MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ispHusWEKA3CalXIEK51_NiqFwzActFVSyietRsLH68'
   }
 };
+
 const dummyThumbnails = [
   {
     id: 'as0VuHCf79M',
@@ -317,7 +318,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && player) closePlayer();
 });
 
-fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_response=videos`, OPTIONS)
+fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_response=videos`, options)
   .then(response => response.json())
   .then(response => {
     console.log(response);
@@ -354,24 +355,19 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_respons
   .then(response => console.log(response));
 // .catch(err => console.error(err));
 
-function openMovie(evt, cityName) {
-  // Declare all variables
-  var i, tabContent, tabLinks;
+// tab menu 부분
+function openMovie(evt, tabName) {
+  let tabcontent = document.getElementsByClassName('tabcontent');
+  let tablinks = document.getElementsByClassName('tablinks');
 
-  // Get all elements with class="tabContent" and hide them
-  tabContent = document.getElementsByClassName('tabContent');
-  for (i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = 'none';
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = 'none';
+  }
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(' active', '');
   }
 
-  // Get all elements with class="tabLinks" and remove the class "active"
-  tabLinks = document.getElementsByClassName('tabLinks');
-  for (i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = 'block';
+  document.getElementById(tabName).style.display = 'block';
   evt.currentTarget.className += ' active';
 }
 
@@ -460,8 +456,8 @@ function createThumbnailSlide(video) {
 
 async function createThumbnailElements(movieVideos) {
   try {
-    //const thumbnails = await getThumbnails(movieVideos); // api 사용
-    const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
+    const thumbnails = await getThumbnails(movieVideos); // api 사용
+    //const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
     $videoList.innerHTML = '';
     if (thumbnails.length > 8) {
       thumbnails.slice(0, 8).forEach(video => {
