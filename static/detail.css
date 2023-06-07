@@ -1,6 +1,8 @@
 header {
   height: 80px;
-  background-color: black;
+  background-color: #000000de;
+  position: fixed;
+  width: 100%;
 }
 .inner {
   width: 1300px;
@@ -8,6 +10,8 @@ header {
   margin: 0 auto;
   text-align: center;
 }
+
+/* header 부분 */
 .inner .logo {
   width: 100px;
   background: url(https://i.postimg.cc/V06wP6hc/logo01.png);
@@ -21,23 +25,25 @@ header {
   margin: 0 auto;
   text-align: center;
 }
+
+/* 상세부분 */
 #visual {
-  background: linear-gradient(0deg, rgb(0 0 0), rgb(0 0 0 / 84%)),
+  /* background: linear-gradient(0deg, rgb(0 0 0), rgb(0 0 0 / 84%)),
     url(https://image.tmdb.org/t/p/w500/2I5eBh98Q4aPq8WdQrHdTC8ARhY.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 #visual .inner {
   margin: 0 auto;
-  height: 800px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-top: 200px;
+  padding-bottom: 120px;
 }
-.inner .word {
-}
+
 .inner .word h2 {
   color: white;
   font-size: 48px;
@@ -53,7 +59,6 @@ header {
   text-align: center;
 }
 .inner .word .info {
-  /* margin-top: 80px; */
   text-align: center;
 }
 .inner .word .info p {
@@ -68,8 +73,7 @@ header {
   padding: 20px 0;
   font-weight: bold;
 }
-.inner .word .info p span {
-}
+
 .inner img {
   width: 300px;
   float: right;
@@ -82,27 +86,39 @@ header {
   border: 0.5px solid #3e3e3eb5;
 }
 
-#content {
+/* Overview 부분 */
+#information {
   background-color: black;
-  padding-top: 170px;
-  padding-bottom: 120px;
+  padding: 120px 0;
 }
 
-/* Style the tab */
+#information .inner h2 {
+  color: white;
+  font-size: 48px;
+}
+#information .inner p {
+  color: white;
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+#content {
+  background-color: black;
+  padding-bottom: 240px;
+}
+
+/* tab menu 부분 */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
   background-color: #f1f1f1;
   display: inline-block;
-  width: 500px;
   margin-bottom: 60px;
 }
 
-/* Style the buttons that are used to open the tab content */
 .tab button {
-  background-color: inherit;
   float: left;
-  border: none;
+  border: 1px solid #ccc;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
@@ -110,30 +126,30 @@ header {
   font-size: 20px;
   color: white;
   background-color: black;
-  width: 50%;
+  width: 200px;
   height: 60px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
   background-color: #ccc;
 }
 
-/* Style the tab content */
-.tabcontent {
-  /* display: none; */
-  padding: 6px 12px;
-  border-top: none;
-  width: 1000px;
-  margin: 0 auto;
+#reviews p {
+  color: white;
 }
-.tabcontent p {
-  color: #ccc;
-  font-size: 20px;
-  line-height: 60px;
+#videos {
+  display: none;
+}
+#videos p {
+  color: white;
+}
+#recommend {
+  display: none;
+}
+#recommend p {
+  color: white;
 }
