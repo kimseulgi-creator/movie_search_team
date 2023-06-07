@@ -6,10 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-  />
   <link rel="stylesheet" href="../static/reset.css">
   <link rel="stylesheet" href="../static/detail.css">
 
@@ -40,17 +36,15 @@
     <hr>
   </section>
 
-  <section id="videos">
+  <section id="videos" class="videos">
     <div class="inner">
       <h3 class="videos__title">Movie Videos</h3>
-      <div class="thumbnailSwiper__container">
-        <div class="swiper thumbnailSwiper">
-          <div class="swiper-wrapper videoList"></div>
-        </div>
-      </div>
+      <ul class="videoList"></ul>
+
+    </div>
   
       <div id="youtubePlayer__container" class="hide" onclick="closePlayer()">
-        <div id="youtube_player"></div>
+        <div id="youtubePlayer"></div>
       </div>
     </div>
   </section>
@@ -70,7 +64,6 @@
       </div>
     </div>
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 </body>
 
 <script src="../static/detail.js"></script>

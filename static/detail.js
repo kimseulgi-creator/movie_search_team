@@ -9,47 +9,297 @@ const OPTIONS = {
 };
 const dummyThumbnails = [
   {
-    id: '9je8I3t2mRA',
-    title: 'Sparkle| Your Name | Hindi Cover | Now Streaming | Bloody tv+',
-    url: 'https://i.ytimg.com/vi/9je8I3t2mRA/sddefault.jpg'
-  },
-  {
-    id: 'Rto08gyg_P4',
-    title: 'Zen Zen Zense | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
-    url: 'https://i.ytimg.com/vi/Rto08gyg_P4/sddefault.jpg'
-  },
-  {
-    id: 'Pp57eD9oRPc',
-    title: 'Dream Lantern | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
-    url: 'https://i.ytimg.com/vi/Pp57eD9oRPc/sddefault.jpg'
-  },
-  {
-    id: 'EJVfSU9z-64',
-    title: 'Nandemonaiya | Your Name | Hindi Cover | Now Streaming | Bloody tv+',
-    url: 'https://i.ytimg.com/vi/EJVfSU9z-64/sddefault.jpg'
-  },
-  {
-    id: '_oWzYOwXn-o',
-    title: 'Your Name | Official Hindi Trailer | Bloody tv+',
-    url: 'https://i.ytimg.com/vi/_oWzYOwXn-o/sddefault.jpg'
-  },
-  {
-    id: 'SlNVu5pnZuc',
+    id: 'as0VuHCf79M',
     title:
-      'How to be an anime voice actor, with Your Name stars Stephanie Sheh and Michael Sinterniklaas | BFI',
-    url: 'https://i.ytimg.com/vi/SlNVu5pnZuc/sddefault.jpg'
+      'SpiderMan Across The Spider-Verse SECRETS REVEALED! Shameik Moore, Hailee Steinfeld & Daniel Kaluuya',
+    url: 'https://i.ytimg.com/vi/as0VuHCf79M/sddefault.jpg'
   },
   {
-    id: 'o4-URMnBOPU',
-    title: 'Your Name. | Trailer (Dubbed)',
-    url: 'https://i.ytimg.com/vi/o4-URMnBOPU/sddefault.jpg'
+    id: 'Tnb9dUA9pIo',
+    title:
+      'Spider-Man: Across the Spider-Verse - Pushing Past the Limits Vignette - Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/Tnb9dUA9pIo/sddefault.jpg'
   },
   {
-    id: 'xU47nhruN-Q',
-    title: 'Your Name - Trailer [English Subtitled]',
-    url: 'https://i.ytimg.com/vi/xU47nhruN-Q/sddefault.jpg'
+    id: '6tYqhRYUu4Y',
+    title: 'Spider-Man: Across the Spider-Verse | Cast Unboxing',
+    url: 'https://i.ytimg.com/vi/6tYqhRYUu4Y/sddefault.jpg'
+  },
+  {
+    id: 'r1sob-B7rNQ',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Point :06"',
+    url: 'https://i.ytimg.com/vi/r1sob-B7rNQ/sddefault.jpg'
+  },
+  {
+    id: '-IpM3YOlpJE',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Join :15"',
+    url: 'https://i.ytimg.com/vi/-IpM3YOlpJE/sddefault.jpg'
+  },
+  {
+    id: 'O4r2fdAWI6Y',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Masterpiece :15"',
+    url: 'https://i.ytimg.com/vi/O4r2fdAWI6Y/sddefault.jpg'
+  },
+  {
+    id: 'D9ObYKAPlEo',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Let\'s Go :15"',
+    url: 'https://i.ytimg.com/vi/D9ObYKAPlEo/sddefault.jpg'
+  },
+  {
+    id: 'SEYKogEkO2c',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Spider Zoo :15"',
+    url: 'https://i.ytimg.com/vi/SEYKogEkO2c/sddefault.jpg'
+  },
+  {
+    id: 'NtbkjfvjxV0',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Everything :06"',
+    url: 'https://i.ytimg.com/vi/NtbkjfvjxV0/sddefault.jpg'
+  },
+  {
+    id: 'axQMNL8e8pg',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Society :06"',
+    url: 'https://i.ytimg.com/vi/axQMNL8e8pg/sddefault.jpg'
+  },
+  {
+    id: 'tPkjZZ7BsAU',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Say It :15"',
+    url: 'https://i.ytimg.com/vi/tPkjZZ7BsAU/sddefault.jpg'
+  },
+  {
+    id: 'v4XG6rdT58Y',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Extraordinary :15"',
+    url: 'https://i.ytimg.com/vi/v4XG6rdT58Y/sddefault.jpg'
+  },
+  {
+    id: 'dMNeoggTZRY',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Greatest :15"',
+    url: 'https://i.ytimg.com/vi/dMNeoggTZRY/sddefault.jpg'
+  },
+  {
+    id: 'mh-KncHB6F4',
+    title:
+      'Spider-Man: Across the Spider-Verse | "Calling" by Metro Boomin x Nav x A Boogie with Swae Lee',
+    url: 'https://i.ytimg.com/vi/mh-KncHB6F4/sddefault.jpg'
+  },
+  {
+    id: 'XHLrJSqZd48',
+    title:
+      'Across the Spider-Verse cast members discuss it all | How It Happened: Across the Spider-Verse',
+    url: 'https://i.ytimg.com/vi/XHLrJSqZd48/sddefault.jpg'
+  },
+  {
+    id: 'm5WgYVNiO1g',
+    title: 'Spider-Man: Across the #Spiderverse Now In Cinemas',
+    url: 'https://i.ytimg.com/vi/m5WgYVNiO1g/sddefault.jpg'
+  },
+  {
+    id: 'NplDtSWMZqs',
+    title: 'Spider-Man: Across the #Spiderverse Now In Cinemas',
+    url: 'https://i.ytimg.com/vi/NplDtSWMZqs/sddefault.jpg'
+  },
+  {
+    id: 'ocu84jAOUnQ',
+    title: 'Spider-Man: Across the #Spiderverse Now In Cinemas',
+    url: 'https://i.ytimg.com/vi/ocu84jAOUnQ/sddefault.jpg'
+  },
+  {
+    id: 'PiRQKcD5EJg',
+    title: 'Spider-Man: Across the #Spiderverse Now In Cinemas',
+    url: 'https://i.ytimg.com/vi/PiRQKcD5EJg/sddefault.jpg'
+  },
+  {
+    id: 'rdyoLs85dO0',
+    title: 'Spider-Man: Across the #Spiderverse Now In Cinemas',
+    url: 'https://i.ytimg.com/vi/rdyoLs85dO0/sddefault.jpg'
+  },
+  {
+    id: 'vUyC3ohm1pI',
+    title: 'Across the Spider-Verse | PlayStation Exclusive Clip',
+    url: 'https://i.ytimg.com/vi/vUyC3ohm1pI/sddefault.jpg'
+  },
+  {
+    id: 'fJjTCHqS2TE',
+    title:
+      'SPIDER-MAN: ACROSS THE SPIDER-VERSE - Spider-Center ft. Ashley Brewer & George Kittle (ESPN)',
+    url: 'https://i.ytimg.com/vi/fJjTCHqS2TE/sddefault.jpg'
+  },
+  {
+    id: 'h-TE0A_xDxw',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - Spider-Stan ft. Stan Verrett (ESPN)',
+    url: 'https://i.ytimg.com/vi/h-TE0A_xDxw/sddefault.jpg'
+  },
+  {
+    id: 'JDr9U-Fyuqo',
+    title: 'Spider-Man: Across the Spider-Verse - Hanging With Gwen - Only In Cinemas June 2',
+    url: 'https://i.ytimg.com/vi/JDr9U-Fyuqo/sddefault.jpg'
+  },
+  {
+    id: 'GPitD0-mkYA',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE Clip - Stop Spider-Man',
+    url: 'https://i.ytimg.com/vi/GPitD0-mkYA/sddefault.jpg'
+  },
+  {
+    id: 'RGMKe3Zbo98',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Blue Panther"',
+    url: 'https://i.ytimg.com/vi/RGMKe3Zbo98/sddefault.jpg'
+  },
+  {
+    id: 'yFrxzaBLDQM',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE – Stronger (In Theaters June 2)',
+    url: 'https://i.ytimg.com/vi/yFrxzaBLDQM/sddefault.jpg'
+  },
+  {
+    id: 'Jb7weNjC2k4',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE: Self Love - Song Teaser',
+    url: 'https://i.ytimg.com/vi/Jb7weNjC2k4/sddefault.jpg'
+  },
+  {
+    id: 'XGayDJEqbQA',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - New Guy (In Theaters June 2)',
+    url: 'https://i.ytimg.com/vi/XGayDJEqbQA/sddefault.jpg'
+  },
+  {
+    id: '_AaUrQKBuhU',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Funny Kids"',
+    url: 'https://i.ytimg.com/vi/_AaUrQKBuhU/sddefault.jpg'
+  },
+  {
+    id: 'xDwgLEXO6w0',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Grounded"',
+    url: 'https://i.ytimg.com/vi/xDwgLEXO6w0/sddefault.jpg'
+  },
+  {
+    id: 'zRBNWipKHb4',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Different Sides"',
+    url: 'https://i.ytimg.com/vi/zRBNWipKHb4/sddefault.jpg'
+  },
+  {
+    id: 'pREAYWiHGyQ',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - "Sacrifice My Bad"',
+    url: 'https://i.ytimg.com/vi/pREAYWiHGyQ/sddefault.jpg'
+  },
+  {
+    id: 'MokxwHbscQ8',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE Clip - Gwen & Miles',
+    url: 'https://i.ytimg.com/vi/MokxwHbscQ8/sddefault.jpg'
+  },
+  {
+    id: 'nVaAQhSZQpc',
+    title: 'Spider-Man: Across the Spider-Verse - Pavitr Prabhakar -  Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/nVaAQhSZQpc/sddefault.jpg'
+  },
+  {
+    id: 'wt5HZ7CXCFM',
+    title: 'Spider-Man: Across the Spider-Verse - Jessica Drew -  Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/wt5HZ7CXCFM/sddefault.jpg'
+  },
+  {
+    id: 'qtEjwTAkLl8',
+    title: 'Spider-Man: Across the Spider-Verse - Spider-Punk  -  Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/qtEjwTAkLl8/sddefault.jpg'
+  },
+  {
+    id: 'QJLg2cS-Zsw',
+    title: 'Spider-Man: Across the Spider-Verse | Official Clip | "Missing Class"',
+    url: 'https://i.ytimg.com/vi/QJLg2cS-Zsw/sddefault.jpg'
+  },
+  {
+    id: 'Siq1MNKJDG8',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/Siq1MNKJDG8/sddefault.jpg'
+  },
+  {
+    id: 'P9yp6z_5W9g',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/P9yp6z_5W9g/sddefault.jpg'
+  },
+  {
+    id: 'rjiyRxTIZHQ',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/rjiyRxTIZHQ/sddefault.jpg'
+  },
+  {
+    id: 'EI0NTMdUVBE',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/EI0NTMdUVBE/sddefault.jpg'
+  },
+  {
+    id: 'WRI9KGrRKLI',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/WRI9KGrRKLI/sddefault.jpg'
+  },
+  {
+    id: 'qcPgdj1sjNg',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/qcPgdj1sjNg/sddefault.jpg'
+  },
+  {
+    id: 'CO9eqvuaaG0',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/CO9eqvuaaG0/sddefault.jpg'
+  },
+  {
+    id: 'JMI28YKqOUo',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/JMI28YKqOUo/sddefault.jpg'
+  },
+  {
+    id: 'NhAS_-IRj2s',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/NhAS_-IRj2s/sddefault.jpg'
+  },
+  {
+    id: 'pBtymkdElK0',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/pBtymkdElK0/sddefault.jpg'
+  },
+  {
+    id: 'ltrOzSBlSuE',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/ltrOzSBlSuE/sddefault.jpg'
+  },
+  {
+    id: 'bOvIS6ayNvE',
+    title: 'SPIDER-MAN: ACROSS THE #SPIDERVERSE - in cinemas May 31',
+    url: 'https://i.ytimg.com/vi/bOvIS6ayNvE/sddefault.jpg'
+  },
+  {
+    id: 'Etv-L2JKCWk',
+    title: 'Spider-Man: Across the Spider-Verse - Trailer #3 -  Only In Cinemas June 2',
+    url: 'https://i.ytimg.com/vi/Etv-L2JKCWk/sddefault.jpg'
+  },
+  {
+    id: 'XFZJ3pHK5Vk',
+    title: 'Spider-Man: Across the Spider-Verse - Legacy 30" - Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/XFZJ3pHK5Vk/sddefault.jpg'
+  },
+  {
+    id: 'bk0ck-g_rPk',
+    title: 'Spider-Man: Across the Spider-Verse - Welcome 30" - Only In Cinemas Now',
+    url: 'https://i.ytimg.com/vi/bk0ck-g_rPk/sddefault.jpg'
+  },
+  {
+    id: 'shW9i6k8cB0',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - Official Trailer #2 (HD)',
+    url: 'https://i.ytimg.com/vi/shW9i6k8cB0/sddefault.jpg'
+  },
+  {
+    id: 'cfUpAOknDRI',
+    title: 'The Spider-Verse will never be the same. New trailer arrives April 4. 🕷 | #SpiderVerse',
+    url: 'https://i.ytimg.com/vi/cfUpAOknDRI/sddefault.jpg'
+  },
+  {
+    id: 'cqGjhVJWtEg',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE - Official Trailer (HD)',
+    url: 'https://i.ytimg.com/vi/cqGjhVJWtEg/sddefault.jpg'
+  },
+  {
+    id: 'BbXJ3_AQE_o',
+    title: 'SPIDER-MAN: ACROSS THE SPIDER-VERSE – First Look',
+    url: 'https://i.ytimg.com/vi/BbXJ3_AQE_o/sddefault.jpg'
   }
 ];
+
 const $videoList = document.querySelector('.videoList');
 const $youtubePlayer__container = document.querySelector('#youtubePlayer__container');
 const $thumbnailSwiper = document.querySelector('.thumbnailSwiper');
@@ -167,7 +417,7 @@ function resetVideo() {
 function startPlayer(id) {
   resetVideo();
   const width = Math.min(document.documentElement.clientWidth, 1200);
-  player = new YT.Player('youtube_player', {
+  player = new YT.Player('youtubePlayer', {
     height: (width * 0.9 * 9) / 16,
     width: width * 0.9,
     videoId: id,
@@ -184,13 +434,14 @@ function closePlayer() {
 }
 
 function createThumbnailSlide(video) {
-  const newItem = document.createElement('div');
+  const newItem = document.createElement('li');
   const newBtn = document.createElement('button');
   const newTitle = document.createElement('p');
   const newImg = document.createElement('img');
   const newPlayIcon = document.createElement('span');
 
-  newItem.classList.add('swiper-slide');
+  newItem.classList.add('videoList__video');
+  newTitle.classList.add('videoThumbnail__title');
   newTitle.innerText = video.title;
   newImg.src = video.url;
   newImg.alt = video.title;
@@ -209,52 +460,40 @@ function createThumbnailSlide(video) {
 
 async function createThumbnailElements(movieVideos) {
   try {
-    const thumbnails = await getThumbnails(movieVideos); // api 사용
-    //const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
+    //const thumbnails = await getThumbnails(movieVideos); // api 사용
+    const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
     $videoList.innerHTML = '';
-    thumbnails.forEach(video => {
-      const newItem = createThumbnailSlide(video);
-      $videoList.appendChild(newItem);
-    });
-    document.querySelector('.thumbnailSwiper').insertAdjacentHTML(
-      'afterend',
-      `
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>`
-    );
-    const swiper = createThumbnailSwiper('.thumbnailSwiper');
+    if (thumbnails.length > 8) {
+      thumbnails.slice(0, 8).forEach(video => {
+        const newItem = createThumbnailSlide(video);
+        $videoList.appendChild(newItem);
+      });
+
+      const moreBtn = document.createElement('button');
+      moreBtn.classList.add('videos__moreBtn');
+      moreBtn.innerHTML = `더 보기<span class='arrowDownIcon'></span>`;
+
+      let count = 8;
+      moreBtn.addEventListener('click', e => {
+        console.log(count);
+        thumbnails.slice(count, Math.min(count + 8, thumbnails.length)).forEach(video => {
+          const newItem = createThumbnailSlide(video);
+          $videoList.appendChild(newItem);
+        });
+        count += 8;
+        if (count >= thumbnails.length) e.target.remove();
+      });
+
+      $videoList.parentNode.appendChild(moreBtn);
+    } else {
+      thumbnails.forEach(video => {
+        const newItem = createThumbnailSlide(video);
+        $videoList.appendChild(newItem);
+      });
+    }
+
     $youtubePlayer__container.addEventListener('click', closePlayer);
   } catch (error) {
     console.error(error);
   }
-}
-
-function createThumbnailSwiper(selector) {
-  return new Swiper(selector, {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    breakpoints: {
-      600: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      1000: {
-        slidesPerView: 3,
-        spaceBetween: 40
-      },
-      1400: {
-        slidesPerView: 4,
-        spaceBetween: 50
-      }
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction'
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }
-  });
 }
