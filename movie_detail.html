@@ -58,9 +58,39 @@
         <button class="tablinks" onclick="openMovie(event, 'recommend')">Recommend</button>
       </div>
 
+
+      <!-- sdfsdfs -->
       <!-- tab menu 부분 (content) -->
       <div id="reviews" class="tabcontent">
-        <p>댓글부분입니당</p>
+        <div class="content review-container">
+          <p id="review-num"></p>
+          <!-- 댓글 감싸주는 박스 -->
+            <div class="middleModal">
+              <div class="modalReview">
+              </div>
+            </div>
+
+            <!-- 폼 제출영역 박스 -->
+            <div class="form-container">
+              <form id="form">
+              <input id="name" class="name" type="text" placeholder="name"/> :
+              <input id="textareaComment" class="textareaComment" autocomplete='off'></input>
+              <!-- <input id="password" class="password" type="password" placeholder="password"/> -->
+              <div class="rating_box">
+                <div class="rating">
+                  <div class="star-ratings-fill space-x-2 text-lg"
+                      :style="{ width: ratingToPercent + '%' }"></div>
+                  ★★★★★
+                  <span class="rating_star">★★★★★</span>
+                  <input id = "star" type="range" value="1" step="1" min="0" max="10" />
+                </div>
+              </div>
+              <button type="submit">submit</button>
+            </form>
+            </div>
+
+          
+        </div>
       </div>
       <div id="videos" class="tabcontent videos">
           <div class="inner">
