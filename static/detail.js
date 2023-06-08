@@ -95,6 +95,7 @@ function openMovie(evt, tabName) {
   if (tabName === 'reviews') {
     document.querySelector('.modalReview').scrollTop =
       document.querySelector('.modalReview').scrollHeight;
+
   }
 }
 
@@ -203,7 +204,6 @@ const getReadInfo = () => {
         value.forEach(item => {
           // 댓글 붙일 요소를 다시 생성
           let nweDiv = document.createElement('div');
-
           // value값 지정 - 사용자가 입력한 비밀번호로 특정한 값을 만들어줌
           let valueAttr = document.createAttribute('id');
           valueAttr.value = item.password;
@@ -227,6 +227,19 @@ const getReadInfo = () => {
         `;
 
           modalReview.appendChild(nweDiv);
+
+
+          // if (item.star_num == 5) {
+          //   document.getElementById(item.name + '_star').innerText = '⭐⭐⭐⭐⭐';
+          // } else if (item.star_num == 4) {
+          //   document.getElementById(item.name + '_star').innerText = '⭐⭐⭐⭐';
+          // } else if (item.star_num == 3) {
+          //   document.getElementById(item.name + '_star').innerText = '⭐⭐⭐';
+          // } else if (item.star_num == 2) {
+          //   document.getElementById(item.name + '_star').innerText = '⭐⭐';
+          // } else {
+          //   document.getElementById(item.name + '_star').innerText = '⭐';
+          // }
 
           modalReview.scrollTop = modalReview.scrollHeight;
           review_num++;
