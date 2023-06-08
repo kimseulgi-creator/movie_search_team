@@ -52,7 +52,7 @@ header {
   margin-top: 80px;
   margin-bottom: 30px;
 }
-.inner .word > p {
+.inner .word .heart p {
   color: #cccccc;
   font-size: 26px;
   margin: 50px 0;
@@ -72,6 +72,13 @@ header {
   border-radius: 30px;
   padding: 20px 0;
   font-weight: bold;
+}
+
+.inner .word > p {
+  color: #cccccc;
+  font-size: 26px;
+  margin: 50px 0;
+  text-align: center;
 }
 
 .inner img {
@@ -106,6 +113,22 @@ header {
 #content {
   background-color: black;
   padding-bottom: 240px;
+}
+
+/* 좋아요 버튼 부분 */
+.heart {
+  height: auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+#btn {
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 50px;
+  margin-right: 15px;
 }
 
 /* tab menu 부분 */
@@ -195,6 +218,7 @@ header {
   background-color: #ffffff2e;
 }
 
+/* youtube */
 #youtubePlayer__container {
   z-index: 100;
   width: 100vw;
@@ -249,6 +273,7 @@ header {
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 16px 0px inset,
     rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
     rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0 7px 20px;
@@ -283,7 +308,6 @@ header {
   border: none;
   background: none;
   cursor: pointer;
-  position: relative;
 }
 
 .videoThumbnail__title {
