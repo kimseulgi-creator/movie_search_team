@@ -26,7 +26,6 @@ let player;
 fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
-    console.log(response);
     let detail_backImg = 'https://image.tmdb.org/t/p/w500' + response.backdrop_path;
     let poster = 'https://image.tmdb.org/t/p/w500' + response.poster_path;
     document.querySelector(
@@ -58,8 +57,21 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => console.log(response));
 // .catch(err => console.error(err));
 
+const saveId = localStorage.getItem('like-' + String(id));
+if (saveId === 'true') {
+  const like = document.querySelector('#btn');
+  like.classList.add('fa-solid');
+}
 // 좋아요 기능
 function heartLight() {
+  const a = localStorage.getItem('like-' + String(id));
+  if (a === 'true' || a === 'false') {
+    localStorage.setItem('like-' + String(id), !(a === 'true'));
+    localStorage.getItem('like-' + String(id));
+  } else {
+    localStorage.setItem('like-' + String(id), true);
+    localStorage.getItem('like-' + String(id));
+  }
   const like = document.querySelector('#btn');
   like.classList.toggle('fa-solid');
 }
@@ -81,7 +93,9 @@ function openMovie(evt, tabName) {
 
   // review
   if (tabName === 'reviews') {
-    modalReview.scrollTop = modalReview.scrollHeight;
+    document.querySelector('.modalReview').scrollTop =
+      document.querySelector('.modalReview').scrollHeight;
+
   }
 }
 
@@ -190,7 +204,6 @@ const getReadInfo = () => {
         value.forEach(item => {
           // 댓글 붙일 요소를 다시 생성
           let nweDiv = document.createElement('div');
-
           // value값 지정 - 사용자가 입력한 비밀번호로 특정한 값을 만들어줌
           let valueAttr = document.createAttribute('id');
           valueAttr.value = item.password;
@@ -214,6 +227,7 @@ const getReadInfo = () => {
         `;
 
           modalReview.appendChild(nweDiv);
+
 
           // if (item.star_num == 5) {
           //   document.getElementById(item.name + '_star').innerText = '⭐⭐⭐⭐⭐';
