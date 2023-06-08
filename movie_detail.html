@@ -8,6 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../static/reset.css">
   <link rel="stylesheet" href="../static/detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -23,8 +24,12 @@
       <div class="word">
         <h2></h2>
         <p class="tagline"></p>
-        <p class="vote"></p>
-        <div class="info">
+        <div class="heart">
+          <p class="vote"></p>
+          <i id="btn" class="fa-regular fa-heart fa-2xl" style="color: lightgray;" onclick="heartLight()"></i>
+          <p class="like">LIKE</p>
+        </div>
+          <div class="info">
           <p>개봉 | <span class="date"></span></p>
           <p>장르 | <span class="genre"></span></p>
           <p>언어 | <span class="country"></span></p>

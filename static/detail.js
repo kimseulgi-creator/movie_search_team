@@ -355,6 +355,12 @@ fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_respons
   .then(response => console.log(response));
 // .catch(err => console.error(err));
 
+// 좋아요 기능
+function heartLight() {
+  const like = document.querySelector('#btn');
+  like.classList.toggle('fa-solid');
+}
+
 // tab menu 부분
 function openMovie(evt, tabName) {
   let tabcontent = document.getElementsByClassName('tabcontent');
