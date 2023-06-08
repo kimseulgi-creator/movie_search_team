@@ -307,6 +307,7 @@ header {
   border: none;
   background: none;
   cursor: pointer;
+  position: relative;
 }
 
 .videoThumbnail__title {
