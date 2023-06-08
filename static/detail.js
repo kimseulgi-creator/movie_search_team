@@ -23,11 +23,7 @@ let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player;
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && player) closePlayer();
-});
-
-fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_response=videos`, options)
+fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
     console.log(response);
@@ -86,129 +82,6 @@ function openMovie(evt, tabName) {
   // review
   if (tabName === 'reviews') {
     modalReview.scrollTop = modalReview.scrollHeight;
-  }
-}
-
-async function getThumbnails(movieVideos) {
-  if (movieVideos.length === 0) throw new Error('비디오가 없습니다.');
-  const requests = movieVideos.map(video => fetchYoutubeVideos(video.key));
-  const responses = await Promise.all(requests);
-  return responses.filter(x => x);
-}
-
-async function fetchYoutubeVideos(id) {
-  const res = await fetch(
-    `
-      https://content-youtube.googleapis.com/youtube/v3/videos?id=${id}&part=id,snippet&key=${YOUTUBE_APIKEY}`,
-    {
-      method: 'GET',
-      headers: {
-        accept: 'application/json'
-      }
-    }
-  );
-  const { items } = await res.json();
-  if (!items[0]) return undefined;
-  return {
-    id: items[0].id,
-    title: items[0].snippet.title,
-    url: items[0].snippet.thumbnails.standard.url
-  };
-}
-
-function onPlayerReady(event) {
-  event.target.setVolume(0);
-  event.target.playVideo();
-}
-
-function resetVideo() {
-  if (player) {
-    player.destroy();
-    player = null;
-  }
-}
-
-function startPlayer(id) {
-  resetVideo();
-  const width = Math.min(document.documentElement.clientWidth, 1200);
-  player = new YT.Player('youtubePlayer', {
-    height: (width * 0.9 * 9) / 16,
-    width: width * 0.9,
-    videoId: id,
-    events: {
-      onReady: onPlayerReady
-    }
-  });
-  $youtubePlayer__container.classList.remove('hide');
-}
-
-function closePlayer() {
-  $youtubePlayer__container.classList.add('hide');
-  resetVideo();
-}
-
-function createThumbnailSlide(video) {
-  const newItem = document.createElement('li');
-  const newBtn = document.createElement('button');
-  const newTitle = document.createElement('p');
-  const newImg = document.createElement('img');
-  const newPlayIcon = document.createElement('span');
-
-  newItem.classList.add('videoList__video');
-  newTitle.classList.add('videoThumbnail__title');
-  newTitle.innerText = video.title;
-  newImg.src = video.url;
-  newImg.alt = video.title;
-  newImg.onerror = e => {
-    e.target.src = 'https://placehold.co/640x480?text=No+Image';
-  };
-  newPlayIcon.classList.add('playIcon');
-  newBtn.classList.add('videoThumbnail');
-  newBtn.addEventListener('click', () => startPlayer(video.id));
-  newBtn.appendChild(newImg);
-  newBtn.appendChild(newPlayIcon);
-  newItem.appendChild(newBtn);
-  newItem.appendChild(newTitle);
-  return newItem;
-}
-
-async function createThumbnailElements(movieVideos) {
-  try {
-    const thumbnails = await getThumbnails(movieVideos); // api 사용
-    //const thumbnails = dummyThumbnails; // api 사용하지 않는 더미 데이터
-    $videoList.innerHTML = '';
-    if (thumbnails.length > 8) {
-      thumbnails.slice(0, 8).forEach(video => {
-        const newItem = createThumbnailSlide(video);
-        $videoList.appendChild(newItem);
-      });
-
-      const moreBtn = document.createElement('button');
-      moreBtn.classList.add('videos__moreBtn');
-      moreBtn.innerHTML = `더 보기<span class='arrowDownIcon'></span>`;
-
-      let count = 8;
-      moreBtn.addEventListener('click', e => {
-        console.log(count);
-        thumbnails.slice(count, Math.min(count + 8, thumbnails.length)).forEach(video => {
-          const newItem = createThumbnailSlide(video);
-          $videoList.appendChild(newItem);
-        });
-        count += 8;
-        if (count >= thumbnails.length) e.target.remove();
-      });
-
-      $videoList.parentNode.appendChild(moreBtn);
-    } else {
-      thumbnails.forEach(video => {
-        const newItem = createThumbnailSlide(video);
-        $videoList.appendChild(newItem);
-      });
-    }
-
-    $youtubePlayer__container.addEventListener('click', closePlayer);
-  } catch (error) {
-    console.error(error);
   }
 }
 
