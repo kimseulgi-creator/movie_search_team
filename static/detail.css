@@ -1,5 +1,3 @@
-
-
 header {
   height: 80px;
   background-color: #000000de;
@@ -54,7 +52,7 @@ header {
   margin-top: 80px;
   margin-bottom: 30px;
 }
-.inner .word > p {
+.inner .word .heart p {
   color: #cccccc;
   font-size: 26px;
   margin: 50px 0;
@@ -74,6 +72,13 @@ header {
   border-radius: 30px;
   padding: 20px 0;
   font-weight: bold;
+}
+
+.inner .word > p {
+  color: #cccccc;
+  font-size: 26px;
+  margin: 50px 0;
+  text-align: center;
 }
 
 .inner img {
@@ -108,6 +113,22 @@ header {
 #content {
   background-color: black;
   padding-bottom: 240px;
+}
+
+/* 좋아요 버튼 부분 */
+.heart {
+  height: auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+#btn {
+  cursor: pointer;
+  font-size: 2em;
+  margin-left: 50px;
+  margin-right: 15px;
 }
 
 /* tab menu 부분 */
@@ -197,11 +218,7 @@ header {
   background-color: #ffffff2e;
 }
 
-
-
-
-
-
+/* youtube */
 #youtubePlayer__container {
   z-index: 100;
   width: 100vw;
@@ -255,8 +272,8 @@ header {
   transform-origin: center;
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 16px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
     rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0 7px 20px;
@@ -273,7 +290,7 @@ header {
 }
 
 .playIcon::before {
-  content: "";
+  content: '';
   display: inline-block;
   border-left: 0.3em solid;
   border-top: 0.18em solid transparent;
@@ -282,7 +299,7 @@ header {
 }
 
 .videoThumbnail:hover .playIcon {
-  background-color: rgb(211 35 35);;
+  background-color: rgb(211 35 35);
   font-size: 100px;
 }
 
@@ -291,7 +308,6 @@ header {
   border: none;
   background: none;
   cursor: pointer;
-  position: relative;
 }
 
 .videoThumbnail__title {
@@ -304,3 +320,297 @@ header {
   overflow: hidden;
 }
 
+/* ------------review-------------- */
+
+.review-container {
+  width: 80%;
+  color: rgba(255, 255, 255, 0.73);
+  max-height: 600px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.review-container::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+.middleModal {
+  overflow: scroll;
+  position: relative;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.middleModal::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+.modalReview {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 10px;
+  overflow: scroll;
+}
+
+.modalReview::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+.show-reviews {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  min-height: 80px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding: 5px 0px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 17px;
+}
+
+.textImg {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-image: url('https://yt3.googleusercontent.com/_DiGCcjGwJQAZ3zmlyB8TCYuA8O9tDJ9zGNysq5sR0rxwYb6SP5fW8cb3LbfcRwfui0m27oIhA=s900-c-k-c0x00ffffff-no-rj');
+  background-position: center;
+  background-size: cover;
+  background-color: beige;
+}
+
+.textarea-name {
+  max-width: 80px;
+  word-break: break-all;
+  margin-left: 5px;
+}
+.textarea-comment {
+  letter-spacing: 0.8px;
+  max-width: 50%;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+.reviews-btn {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: #cccccc;
+}
+
+#form .name {
+  height: 30px;
+  width: 75px;
+  color: #262626;
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  margin-right: 5px;
+  text-align: center;
+}
+
+#form .name:focus {
+  outline: none;
+}
+
+#form .password {
+  height: 30px;
+  width: 75px;
+  color: #252525;
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  margin-right: 5px;
+  text-align: center;
+}
+
+#form .password:focus {
+  outline: none;
+}
+
+.form-container .textareaComment {
+  width: 40%;
+  height: 20px;
+  color: rgba(0, 0, 0, 0.747);
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 17px;
+  background-color: #e9dfdfca;
+  border: 1px solid white;
+  margin: 0 10px;
+}
+
+.form-container .textareaComment:focus {
+  outline: none;
+}
+#form {
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form button {
+  padding: 10px;
+  margin: 0 15px;
+  font-family: sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* -------edit--------- */
+
+#edit {
+  padding: 10px;
+  font-family: sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#remove {
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-background {
+  background-color: #cccccc;
+  color: black;
+}
+
+.editName {
+  width: 80px;
+  height: 30px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(36, 35, 35);
+  margin-right: 5px;
+  text-align: center;
+}
+
+.editpassword {
+  width: 80px;
+  height: 30px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(48, 46, 46);
+  margin-right: 5px;
+  text-align: center;
+}
+
+.editComment {
+  width: 60%;
+  height: 20px;
+  color: rgba(0, 0, 0, 0.747);
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #ffffffca;
+  border: none;
+  border: none;
+  margin: 0 10px;
+  resize: none;
+}
+
+.edit-button {
+  position: absolute;
+  right: 7%;
+}
+
+#clear {
+  padding: 10px;
+  margin: 0 5px;
+  font-family: sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.editName:focus {
+  outline: none;
+}
+.editpassword:focus {
+  outline: none;
+}
+.editComment:focus {
+  outline: none;
+}
+.clear:focus {
+  outline: none;
+}
+
+/* ---------reviewInputStar-------- */
+
+.star {
+  width: 150px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: darkblue;
+}
+
+.reviews-btn span {
+  margin-right: 10px;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+.rating_box {
+  display: flex;
+}
+
+.rating {
+  position: relative;
+  color: #ddd;
+  font-size: 30px;
+  text-align: center;
+}
+
+.rating input {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.rating_star {
+  width: 0;
+  color: #30b458;
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
