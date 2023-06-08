@@ -26,7 +26,6 @@ let player;
 fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
-    console.log(response);
     let detail_backImg = 'https://image.tmdb.org/t/p/w500' + response.backdrop_path;
     let poster = 'https://image.tmdb.org/t/p/w500' + response.poster_path;
     document.querySelector(
