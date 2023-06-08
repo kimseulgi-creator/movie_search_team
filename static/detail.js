@@ -11,7 +11,7 @@ let link = document.location.href.split('?');
 const urlSearchParamsObject = new URLSearchParams(link[1]);
 const id = urlSearchParamsObject.get('id');
 
-fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_response=videos`, options)
+fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
     console.log(response);
