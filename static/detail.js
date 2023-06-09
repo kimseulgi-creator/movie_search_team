@@ -17,12 +17,6 @@ const rating_star = document.querySelector('.rating_star');
 let star = 0;
 let review_num = 0;
 
-let tag = document.createElement('script');
-tag.src = 'https://www.youtube.com/iframe_api';
-let firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-let player;
-
 fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
@@ -216,12 +210,9 @@ const getReadInfo = () => {
           nweDiv.innerHTML = `
         <p><div class='textImg'></div><span class='textarea-name'>${
           item.name
-        }</span> &nbsp; &nbsp; <span>${'⭐'.repeat(
-            item.star_num
-          )}</span> &nbsp; : &nbsp; <span class='textarea-comment'>${
-            item.textareaComment
-          }</span></p> 
+        }</span> &nbsp; : &nbsp; <span class='textarea-comment'>${item.textareaComment}</span></p> 
         <span class='reviews-btn'>
+            <span>${'⭐'.repeat(item.star_num)}</span>
             <button id='edit' onclick='editInfo(event)'>edit</button>
             <button id='remove' onclick='removeInfo(event)'>remove</button>
         </span>
@@ -263,7 +254,7 @@ const editInfo = e => {
     <input class='editComment'  type='text' >
     <span class='edit-button'>
     <button id='clear' onclick='submitEditInfo(event)'>
-      clear
+      save
     </button>
     <button id='clear' onclick='goToBack(event)' >
       back
@@ -335,10 +326,9 @@ const goToBack = e => {
       ParentNode.innerHTML = `
       <p><div class='textImg'></div><span class='textarea-name'>${
         item.name
-      }</span> &nbsp; <span>${'⭐'.repeat(
-        item.star_num
-      )}</span> &nbsp; : &nbsp; <span class='textarea-comment'>${item.textareaComment}</span></p> 
+      }</span> &nbsp; : &nbsp; <span class='textarea-comment'>${item.textareaComment}</span></p> 
       <span class='reviews-btn'>
+          <span>${'⭐'.repeat(item.star_num)}</span>
           <button id='edit' onclick='editInfo(event)'>edit</button>
           <button id='remove' onclick='removeInfo(event)'>remove</button>
       </span>
@@ -361,10 +351,9 @@ const putEditInfo = (e, compartPassword) => {
        
       <p><div class='textImg'></div><span class='textarea-name'>${
         item.name
-      }</span> &nbsp; <span>${'⭐'.repeat(
-        item.star_num
-      )}</span> &nbsp; : <span class='textarea-comment'>${item.textareaComment}</span></p> 
+      }</span> &nbsp; : &nbsp;<span class='textarea-comment'>${item.textareaComment}</span></p> 
       <span class='reviews-btn'>
+          <span>${'⭐'.repeat(item.star_num)}</span>
           <button id='edit' onclick='editInfo(event)'>edit</button>
           <button id='remove' onclick='removeInfo(event)'>remove</button>
       </span>

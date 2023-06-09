@@ -101,6 +101,7 @@ header #gnb li:last-child a:hover {
   text-indent: -999px;
   cursor: pointer;
   filter: opacity(0.5) drop-shadow(0 0 0 #228b22);
+  overflow: hidden;
 }
 
 #search form fieldset button:hover {
