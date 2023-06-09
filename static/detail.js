@@ -20,21 +20,21 @@ let review_num = 0;
 fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
   .then(response => response.json())
   .then(response => {
-    let detail_backImg = 'https://image.tmdb.org/t/p/w500' + response.backdrop_path;
-    let poster = 'https://image.tmdb.org/t/p/w500' + response.poster_path;
+    const detail_backImg = 'https://image.tmdb.org/t/p/w500' + response.backdrop_path;
+    const poster = 'https://image.tmdb.org/t/p/w500' + response.poster_path;
     document.querySelector(
       '#visual'
     ).style.background = `linear-gradient(0deg, rgb(0 0 0), rgb(0 0 0 / 84%)), url(${detail_backImg}) center no-repeat`;
     document.querySelector('#visual').style.backgroundSize = 'cover';
-    let detail_title = response.title;
-    let detail_tagline = response.tagline;
-    let detail_average = Math.round(response.vote_average * 10) / 10;
-    let detail_date = response.release_date;
-    let lan = response.spoken_languages[0].english_name;
-    let detail_genres = response.genres[0].name;
-    let detail_runtime = response.runtime;
-    let detail_overview = response.overview;
-    let movie_poster = document.querySelector('#visual').getElementsByTagName('img')[0];
+    const detail_title = response.title;
+    const detail_tagline = response.tagline;
+    const detail_average = Math.round(response.vote_average * 10) / 10;
+    const detail_date = response.release_date;
+    const lan = response.spoken_languages[0].english_name;
+    const detail_genres = response.genres[0].name;
+    const detail_runtime = response.runtime;
+    const detail_overview = response.overview;
+    const movie_poster = document.querySelector('#visual').getElementsByTagName('img')[0];
     movie_poster.setAttribute('src', poster);
 
     document.getElementsByTagName('h2')[0].innerText = detail_title;
@@ -61,10 +61,8 @@ function heartLight() {
   const a = localStorage.getItem('like-' + String(id));
   if (a === 'true' || a === 'false') {
     localStorage.setItem('like-' + String(id), !(a === 'true'));
-    localStorage.getItem('like-' + String(id));
   } else {
     localStorage.setItem('like-' + String(id), true);
-    localStorage.getItem('like-' + String(id));
   }
   const like = document.querySelector('#btn');
   like.classList.toggle('fa-solid');
@@ -72,8 +70,8 @@ function heartLight() {
 
 // tab menu 부분
 function openMovie(evt, tabName) {
-  let tabcontent = document.getElementsByClassName('tabcontent');
-  let tablinks = document.getElementsByClassName('tablinks');
+  const tabcontent = document.getElementsByClassName('tabcontent');
+  const tablinks = document.getElementsByClassName('tablinks');
 
   for (let i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = 'none';
@@ -143,18 +141,18 @@ const reviewAction = e => {
     localStorage.setItem(id, objString);
     getReadInfo();
     // 2. 키에 값이 있는 경우
-  } else if (localStorage.getItem(id)) {
+  } else {
     //비밀번호 중복 방지
     try {
       JSON.parse(localStorage.getItem(id)).forEach(item => {
         if (item.password === password) {
-          return eee;
+          throw new Error('비밀번호가 중복됩니다');
         }
       });
 
       //함수 즉시 종료
     } catch (e) {
-      return alert('비밀번호가 중복됩니다');
+      return alert(e);
     }
 
     const obj = {
@@ -269,11 +267,13 @@ const submitEditInfo = e => {
   // e.currentTarget.parentNode ==> <div id="user-password" class="show-reviews"></div>
 
   // edit input editName의 value
-  let prcapracName = document.querySelector(`#${compartPassword}
+  const prcapracName = document.querySelector(`#${compartPassword}
         > .editName`).value;
 
   // edit input editComment value
-  let prcapractextareaComment = document.querySelector(`#${compartPassword} > .editComment`).value;
+  const prcapractextareaComment = document.querySelector(
+    `#${compartPassword} > .editComment`
+  ).value;
 
   console.log(prcapracName, prcapractextareaComment);
   //입력창 입력없을떄
@@ -365,15 +365,12 @@ const putEditInfo = (e, compartPassword) => {
 // 댓글 제거
 const removeInfo = e => {
   //e.currentTarget.parentNode ==> <div id="user-password" class="show-reviews"></div>
-
   if (window.confirm('삭제하시겠습니까?')) {
     const promptObj = prompt('비밀번호를 입력하세요');
     const len = JSON.parse(localStorage.getItem(id)).length;
     const ParentNode = e.currentTarget.parentNode.parentNode;
     let nodePassword = ParentNode.getAttribute('id');
-
     let localArr = JSON.parse(localStorage.getItem(id));
-
     let ddd = false;
     for (let i = 0; i < len; i++) {
       if (JSON.parse(localStorage.getItem(id))[i].password === promptObj) {
@@ -381,18 +378,16 @@ const removeInfo = e => {
         const objString = JSON.stringify(localArr);
         window.localStorage.setItem(id, objString);
         ///로컬스토리지 삭제 완료
-
         ParentNode.classList.remove('show-reviews');
         ParentNode.innerHTML = '';
+        document.getElementById('review-num').innerHTML = '댓글( ' + (len - 1) + ' )';
         alert('삭제되었습니다');
-        review_num--;
         ddd = false;
         break;
       } else {
         ddd = true;
       }
     }
-
     if (ddd) {
       alert('다시 입력해주세요');
     }
@@ -410,16 +405,8 @@ getReadInfo();
 // more (영화 추천) 부분
 // tab more 부분 -------------------------------------------------------------
 function fetchMovieMore() {
-  const options2 = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGNjMTllZDM3YmFkNmViYWQwYWVkOGJlZDhlNmIxMyIsInN1YiI6IjY0Nzg4ZmFjMGUyOWEyMDBmOTgwNjg4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vIOSlB_VDzqnPI6srMuAs8ua_E43mH0vLV5sJ2lt_Tw'
-    }
-  };
   // let clicked_url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
-  fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`, options2)
+  fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`, options)
     .then(response => response.json())
     .then(response => {
       let result = response['results'];

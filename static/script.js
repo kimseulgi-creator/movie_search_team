@@ -22,7 +22,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
       temp_html += `
       <div class="col">
-        <a onclick="info_click(${id})" type="button">
+        <a href='movie_detail.html?id=${id}'>
           <img src='${img_url}' alt="">
          <div class="info">
           <div class= wrap>
@@ -37,16 +37,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       document.getElementById('cards-box').innerHTML = temp_html;
     });
   });
-
-// 카드 클릭시 Id값 alert창에 표시
-function info_click(id) {
-  alert(`영화 ID:${id}`);
-}
-
-// 페이지 이동
-function info_click(id) {
-  location.href = `movie_detail.html?id=${id}`;
-}
 
 // 검색기능
 function search_btn() {
