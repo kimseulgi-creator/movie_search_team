@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../static/reset.css">
-  <link rel="stylesheet" href="../static/detail.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="../static/detail.css">
 </head>
 
 <body>
@@ -55,7 +57,7 @@
       <div class="tab">
         <button class="tablinks" onclick="openMovie(event, 'reviews')">Reviews</button>
         <button class="tablinks" onclick="openMovie(event, 'videos')">Videos</button>
-        <button class="tablinks" onclick="openMovie(event, 'recommend')">Recommend</button>
+        <button class="tablinks" onclick="openMovie(event, 'more')">More</button>
       </div>
 
 
@@ -101,11 +103,42 @@
             <div id="youtubePlayer"></div>
           </div>
       </div>
-      <div id="recommend" class="tabcontent">
-        <p>Recommend 부분입니당</p>
+
+      <!-- 영화 추천 탭 -->
+      <div id="more" class="tabcontent">
+        <div class="more_section">
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev" id="btn_left"></div>
+          <div class="swiper-button-next" id="btn_right"></div>
+          <div class="swiper mySwiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides Divs-->
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      speed: 400,
+      // spaceBetween: 10,
+      slidesPerView:3,
+      pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets'},
+      clickable: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+      }
+    );
+  </script>
 </body>
 
 <script src="../static/detail.js"></script>

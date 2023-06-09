@@ -27,13 +27,7 @@ header {
 }
 
 /* 상세부분 */
-#visual {
-  /* background: linear-gradient(0deg, rgb(0 0 0), rgb(0 0 0 / 84%)),
-    url(https://image.tmdb.org/t/p/w500/2I5eBh98Q4aPq8WdQrHdTC8ARhY.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
-}
+
 #visual .inner {
   margin: 0 auto;
   display: flex;
@@ -170,10 +164,10 @@ header {
 #videos p {
   color: white;
 }
-#recommend {
+#more {
   display: none;
 }
-#recommend p {
+#more p {
   color: white;
 }
 
@@ -272,8 +266,7 @@ header {
   transform-origin: center;
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 16px 0px inset,
-  rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset,
-  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 18px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
     rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0 7px 20px;
@@ -614,4 +607,95 @@ header {
   right: 0;
   overflow: hidden;
   pointer-events: none;
+}
+
+/* more_영화 추천 부분 */
+
+#more {
+  box-sizing: border-box;
+  width: 1300px;
+}
+
+.more_section {
+  display: flex;
+  position: relative;
+}
+
+.swiper {
+  display: flex;
+  width: 1300px;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+  width: 1200px;
+  align-items: center;
+}
+
+#btn_left {
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  z-index: 10;
+}
+
+/* more_영화 카드들 */
+.swiper-slide {
+  display: flex;
+  width: 360px;
+  height: 500px;
+}
+
+.swiper-slide a {
+  display: block;
+  position: relative;
+  align-items: center;
+}
+.swiper-slide a img {
+  margin: 0 10px;
+  width: 360px;
+  height: 500px;
+  object-fit: cover;
+}
+.swiper-slide a .info {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  background-color: #000000eb;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.swiper-slide a .info:hover {
+  opacity: 100;
+}
+.swiper-slide a .info .wrap {
+  display: inline-block;
+}
+.swiper-slide a .info h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: white;
+  user-select: none;
+}
+.swiper-slide a .info p {
+  line-height: 20px;
+  color: #ccc;
+  user-select: none;
+}
+.swiper-slide a .info p:last-child {
+  margin-top: 30px;
+}
+
+/* 앞/뒤로 가기 버튼 */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white;
 }

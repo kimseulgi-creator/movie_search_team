@@ -1,5 +1,5 @@
 // 상수 및 HTML 엘리먼트
-const YOUTUBE_API_KEY = 'AIzaSyBc0ERVcfLRlK8AkNakLo0BwlfBQmmNVtw';
+const YOUTUBE_API_KEY = 'AIzaSyDRC2LsaxGG1fQn0xKoApc-OPj3V38z_JA';
 const EXPIRATION_DATE = 7 * 24 * 60 * 60 * 1000; // one week
 const THUMBNAILS_PER_PAGE = 8;
 const TMDB_ACCESS_TOKEN = {

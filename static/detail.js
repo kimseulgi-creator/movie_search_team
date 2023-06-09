@@ -95,8 +95,10 @@ function openMovie(evt, tabName) {
   if (tabName === 'reviews') {
     document.querySelector('.modalReview').scrollTop =
       document.querySelector('.modalReview').scrollHeight;
-
   }
+
+  // more (영화 추천) 호출
+  fetchMovieMore();
 }
 
 //------------------- 댓글박스 -----------------------
@@ -220,14 +222,12 @@ const getReadInfo = () => {
             item.textareaComment
           }</span></p> 
         <span class='reviews-btn'>
-            <span>2023.06.07</span>
             <button id='edit' onclick='editInfo(event)'>edit</button>
             <button id='remove' onclick='removeInfo(event)'>remove</button>
         </span>
         `;
 
           modalReview.appendChild(nweDiv);
-
 
           // if (item.star_num == 5) {
           //   document.getElementById(item.name + '_star').innerText = '⭐⭐⭐⭐⭐';
@@ -339,7 +339,6 @@ const goToBack = e => {
         item.star_num
       )}</span> &nbsp; : &nbsp; <span class='textarea-comment'>${item.textareaComment}</span></p> 
       <span class='reviews-btn'>
-          <span>2023.06.07</span>
           <button id='edit' onclick='editInfo(event)'>edit</button>
           <button id='remove' onclick='removeInfo(event)'>remove</button>
       </span>
@@ -366,7 +365,6 @@ const putEditInfo = (e, compartPassword) => {
         item.star_num
       )}</span> &nbsp; : <span class='textarea-comment'>${item.textareaComment}</span></p> 
       <span class='reviews-btn'>
-          <span>2023.06.07</span>
           <button id='edit' onclick='editInfo(event)'>edit</button>
           <button id='remove' onclick='removeInfo(event)'>remove</button>
       </span>
@@ -419,3 +417,46 @@ rating_input.addEventListener('input', () => {
 });
 
 getReadInfo();
+
+// more (영화 추천) 부분
+// tab more 부분 -------------------------------------------------------------
+function fetchMovieMore() {
+  const options2 = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MGNjMTllZDM3YmFkNmViYWQwYWVkOGJlZDhlNmIxMyIsInN1YiI6IjY0Nzg4ZmFjMGUyOWEyMDBmOTgwNjg4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vIOSlB_VDzqnPI6srMuAs8ua_E43mH0vLV5sJ2lt_Tw'
+    }
+  };
+  // let clicked_url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
+  fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`, options2)
+    .then(response => response.json())
+    .then(response => {
+      let result = response['results'];
+
+      let temp_html = ``;
+      result.forEach(i => {
+        let img_url = 'https://image.tmdb.org/t/p/w500' + i['poster_path'];
+        let movie_title = i['title'];
+        let overview = i['overview'];
+        let vote = i['vote_average'];
+        let id = i['id'];
+
+        temp_html += `
+        <div class="swiper-slide">
+          <a onclick="info_click(${id})" type="button">
+            <img src="${img_url}" alt="" />
+            <div class="info">
+              <div class="wrap">
+                <h3>${movie_title}</h3>
+                <p>${overview}</p>
+                <p>⭐ ${vote}</p>
+              </div>
+            </div>
+          </a>
+      </div>`;
+        document.querySelector('.swiper-wrapper').innerHTML = temp_html;
+      });
+    });
+}
