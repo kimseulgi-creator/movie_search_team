@@ -34,7 +34,7 @@ TMDB에서 받아온 영화 데이터를 브라우저 화면에 카드 형태의
 
 <br>
 
-## 기술스택 및 Service Architecture
+## 기술스택
 
 <div/>
   
